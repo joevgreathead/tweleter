@@ -6,7 +6,7 @@ Run as a [Docker image](https://hub.docker.com/r/joevgreathead/tweleter) and inc
 
 ## App Configuration
 
-`LIVE`
+`REAL_DELETES`
 default: false
 Set to "true" to actually delete Tweets. Otherwise, logs will record which tweets would get deleted or not.
 
@@ -14,7 +14,7 @@ Set to "true" to actually delete Tweets. Otherwise, logs will record which tweet
 default: true
 When true, messages for each tweet and whether they would be deleted are logged.
 
-`WAIT_BETWEEN`
+`BETWEEN`
 default: 43200 (12 hrs)
 How long to wait between runs in seconds. 
 
@@ -31,7 +31,7 @@ The username for the twitter account attached to the above secrets.
 
 ## Tweet Deletion Filtering
 
-`DAYS_OLD`
+`DELETE_UP_TO_DAYS_AGO`
 default: 180
 How far back to begin deleting tweets. The default of 180 means no tweets in the last 180 days will be deleted, regardless of content.
 
@@ -41,6 +41,6 @@ A comma delimited list of tweet ids to ignore.
 `EXCLUDE_TEXT`
 A comma delimited list of keywords. Any tweets with these keywords will not be deleted. Must be lowercase.
 
-`LIKES_THRESHOLD`
+`MIN_LIKES`
 default: 10
 The minimum number of likes a tweet needs to not get deleted.
