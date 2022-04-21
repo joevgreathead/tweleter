@@ -53,7 +53,7 @@ end
 def delete?(t)
   delete_window_starts = Time.now.to_i - (DAY_IN_SECONDS * DAYS_OLD)
 
-  id = t.id
+  id = t.id.to_s
   text = t.full_text.downcase
   likes = t.favorite_count.to_i
   created_at = t.created_at.to_i
