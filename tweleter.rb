@@ -85,9 +85,9 @@ puts SEP
 
 puts "Getting some tweets..."
 
-total = 0
-
 while true do
+  total = 0
+  deleted = 0
   max_id = nil
   while true do
     options = {
@@ -102,6 +102,7 @@ while true do
       if delete?(tweet)
         puts "WOULD DELETE | #{link_to(tweet.id)}" if VERBOSE
         client.destroy_status(tweet.id) if LIVE
+        deleted += 1 if LIVE
       else
         puts "IGNORE       | #{link_to(tweet.id)}" if VERBOSE
       end
@@ -113,6 +114,7 @@ while true do
     puts "Found new max id of #{link_to(max_id)}" if VERBOSE
   end
 
-  puts "Took all possible actions. Sleeping for #{WAIT_BETWEEN} seconds..."
+  puts "Deleted #{deleted} tweets" if LIVE
+  puts "Scanned a total of #{total} tweets from #{TWITTER_USER}. Sleeping for #{WAIT_BETWEEN} seconds..."
   sleep(WAIT_BETWEEN)
 end
