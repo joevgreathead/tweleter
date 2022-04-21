@@ -34,7 +34,7 @@ ACCESS_TOKEN_SECRET = env "ACCESS_TOKEN_SECRET"
 
 DAYS_OLD            = env("DELETE_UP_TO_DAYS_AGO", 180).to_i
 TWITTER_USER        = env "TWITTER_USER"
-LIKES_THRESHOLD     = env "MIN_LIKES", 10
+LIKES_THRESHOLD     = env("MIN_LIKES", 10).to_i
 
 client = Twitter::REST::Client.new do |config|
   config.consumer_key        = API_KEY
