@@ -69,7 +69,7 @@ end
 puts SEP
 puts """
 Tweleter is configured as follows:
-  - Tweets older than #{DAYS_OLD} will be deleted if queryable
+  - Tweets older than #{DAYS_OLD} days will be deleted if queryable and not excluded by the below keyword and id filters
   - The account having tweets deleted is: #{TWITTER_USER}
 
   Warning: Please ensure the tokens and secrets configured are for the above mentioned username
@@ -78,6 +78,7 @@ Tweleter is configured as follows:
 
 Tweets containing the following normalized text values will not be deleted:
 #{EXCLUDE_TEXT_VALS.map { |txt| "[#{txt}]" }.join("\n")}
+
 Excluded tweet IDs include:
 #{EXCLUDE_TWEET_IDS.map { |id| link_to(id) }.join("\n")}
 """
